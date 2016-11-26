@@ -1,0 +1,403 @@
+@charset "UTF-8";
+/*
+	* The following color variable are all the color which is use for this website.
+	* 
+	*
+	*
+	*
+*/
+/* Main color */
+/* Background color
+ ----------------------------------------- */
+/* Width
+ ----------------------------------------- */
+/* Section padding & margin
+  ----------------------------------------- */
+/* Font */
+/* Font family */
+/* Text color
+ ----------------------------------------- */
+/* Image url / directory path
+ ------------------------------------------ */
+/* Library color */
+/** Helper @mixin function **/
+/***************************/
+/* @import '_reset.scss'; */
+/* -------------------------------------------------------------------------
+
+		util.sass
+		
+		案件に依存せず汎用的に使うClassを定義
+		
+------------------------------------------------------------------------- */
+/* float clear
+------------------------------------------------- */
+/*for modern browser*/
+@import url("https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Source+Sans+Pro:200,400,700,600,400italic,700italic");
+.clear_fix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+/*for IE 5.5-7*/
+.clear_fix {
+  zoom: 1;
+}
+
+.clear_both {
+  clear: both;
+  height: 1px;
+  font-size: 1px;
+  text-align: center;
+  line-height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/* float
+------------------------------------------------- */
+.float_r {
+  float: right;
+  display: inline;
+}
+
+.float_l {
+  float: left;
+  display: inline;
+}
+
+/* text align
+-------------------------------------------------- */
+.text_center {
+  text-align: center !important;
+}
+
+.text_left {
+  text-align: left !important;
+}
+
+.text_right {
+  text-align: right !important;
+}
+
+/* font family
+----------------------------------------------------- */
+.lang_en {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+
+/* Text underline */
+.underline {
+  border-bottom: 1px solid #999;
+}
+
+/* visibility of element */
+.show_sm {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* グリッドレイアウト用mixin (IE8以上)
+usage:
+■12分割で間隔が20pxのグリッドのクラスを作る場合
+・SASS
+@include grid_system(12, 20px);
+・HTML
+<div class="grid_system_12">  ← このdivへの幅指定はNG
+	<div class="grid_6"></div> ┐
+	<div class="grid_3"></div> ├ 子要素は合計が12になるようにクラス名を付ける
+	<div class="grid_3"></div> ┘
+</div>
+------------------------------------------------- */
+html {
+  background: none;
+  background-image: none;
+}
+
+body {
+  position: relative;
+  background: #fff;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 14px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  letter-spacing: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.login_page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #f6734c;
+}
+
+.login_page::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.login_page:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+  -webkit-clip-path: polygon(36% 79%, 64% 21%, 100% 100%, 47% 100%);
+  clip-path: polygon(36% 79%, 64% 21%, 100% 100%, 47% 100%);
+}
+
+.login_page .uk-container {
+  height: 100%;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+}
+
+.login_container {
+  position: relative;
+  max-width: 400px;
+  width: 400px;
+  background: rgba(245, 247, 249, 0.96);
+  padding: 50px 40px;
+  margin: 0 auto;
+  border-radius: 3px;
+  z-index: 1;
+  border: 1px solid #e5eaef;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.login_container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.login_container .icon_container {
+  position: absolute;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  left: 50%;
+  top: -45px;
+  margin-left: -45px;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background: #f4d03f;
+  box-shadow: 1px 1px 2px rgba(5, 5, 5, 0.3);
+}
+
+.login_container .icon_container i {
+  line-height: 60px;
+  font-size: 60px;
+  height: 60px;
+  width: 60px;
+  color: #fff;
+  text-align: center;
+}
+
+.login_container .form_header {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  text-align: center;
+  padding: 25px;
+}
+
+.login_container .form_header h2 {
+  font-family: "Source Sans Pro", sans-serif !important;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 170%;
+  font-weight: 500;
+  color: #666;
+}
+
+.login_container .login_form {
+  position: relative;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.login_container .login_form::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.login_container .form_group {
+  position: relative;
+  width: 100%;
+  float: left;
+  padding-bottom: 15px;
+}
+
+.login_container input {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: "Source Sans Pro", sans-serif !important;
+  text-align: center;
+}
+
+.login_container .username,
+.login_container .password {
+  display: block;
+  width: 100%;
+  padding: 8px 20px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #555;
+  font-weight: 600;
+  font-size: 140%;
+  line-height: calc(150%*1);
+  outline: 2px solid transparent;
+  -webkit-transition: all 0.45s ease-out;
+  -moz-transition: all 0.45s ease-out;
+  -o-transition: all 0.45s ease-out;
+  -ms-transition: all 0.45s ease-out;
+  transition: all 0.45s ease-out;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.login_container .username:hover,
+.login_container .password:hover {
+  outline-color: rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+
+.login_container .username:focus,
+.login_container .password:focus {
+  outline-color: rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+}
+
+.login_container .submit {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  color: #fff;
+  font-size: 140%;
+  font-weight: 600;
+  line-height: calc(140%*1);
+  padding: 10px 35px;
+  background: #f2ca27;
+  cursor: pointer;
+  outline: 5px solid transparent;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.login_container .submit:hover {
+  outline-color: rgba(241, 196, 15, 0.2);
+  border-radius: 0;
+  background: #e8bd0e;
+}
+
+.login_container .forget_password {
+  display: block;
+  margin: 10px auto 0 auto;
+  text-align: center;
+  color: #e74c3c;
+  font-size: 125%;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  -ms-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+
+.login_container .forget_password:hover {
+  color: #d62c1a;
+  text-decoration: none;
+}
+
+h1 {
+  color: #000;
+}
+
+/* -------------------------------------------------------------------------
+		print.scss
+------------------------------------------------------------------------- */
+@media print {
+  /* IE zoom
+	------------------------------------------------- */
+  /* for IE6 or older */
+  * html body {
+    zoom: 0.7;
+  }
+  /* for IE7 */
+  * + html body {
+    zoom: 1;
+  }
+}

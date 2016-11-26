@@ -1,0 +1,200 @@
+@import 'plugin/bourbon/_bourbon.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Source+Sans+Pro:200,400,700,600,400italic,700italic');
+
+html{
+	background: none;
+	background-image: none;
+}
+body{
+	position: relative;
+	background: $white;
+	font-family: $font_en;
+	font-size: 14px;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	letter-spacing: 0;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.login_page{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background: lighten($pumpkin,3%);
+	@include clearfix();
+
+	&:before{
+		position: absolute;
+		display: block;
+		content:"";
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.2);
+		color: rgba(0,0,0,0.2);
+		-webkit-clip-path: polygon(36% 79%, 64% 21%, 100% 100%, 47% 100%);
+		clip-path: polygon(36% 79%, 64% 21%, 100% 100%, 47% 100%);
+	
+	}
+
+	.uk-container{
+		height: 100%;
+		@include display-flex();
+		@include align-items();
+		@include justify-content();
+	}
+}
+
+.login_container{
+	position: relative;
+	max-width: 400px;
+	width: 400px;
+	background: rgba($lightgray,0.96);
+	padding: 50px 40px;
+	margin: 0 auto;
+	border-radius: 3px;
+	z-index: 1;
+	border: 1px solid darken($lightgray,5%);
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	@include box-sizing(border-box);
+	@include clearfix();
+
+
+
+	.icon_container{
+		position: absolute;
+		@include display-flex();
+		@include align-items();
+		@include justify-content();
+		left: 50%;
+		top: -45px;
+		margin-left: -45px;
+		width: 90px;
+		height: 90px;
+		border-radius: 100%;
+		background: lighten($sunflower,10%);
+		box-shadow: 1px 1px 2px rgba(5,5,5,0.3);
+
+		i{
+			
+			line-height: 60px;
+			font-size: 60px;
+			height: 60px;
+			width: 60px;
+			color: $white;
+			text-align: center;
+		}
+	}
+
+	.form_header{
+		position: relative;
+		background: transparent;
+		width: 100%;
+		float: left;
+		@include box-sizing(border-box);
+		text-align: center;
+		padding: 25px;
+
+		h2{
+			font-family: $font_en;
+			text-transform: uppercase;
+			margin: 0;
+			font-size: 170%;
+			font-weight: 500;
+			color: #666;
+		}
+	}
+
+	.login_form{
+		position: relative;
+		width: 100%;
+		float: left;
+		@include clearfix();
+		@include box-sizing(border-box);
+	}
+
+	.form_group{
+		position: relative;
+		width: 100%;
+		float: left;
+		padding-bottom: 15px;
+
+	}
+
+	input{
+		outline: none;
+		border: none;
+		border-radius: 5px;
+		font-family: $font_en;
+		text-align: center;
+		
+		
+	}
+
+	.username,
+	.password{
+		display: block;
+		width: 100%;
+		padding: 8px 20px;
+		background: rgba(0,0,0,0.1);
+		color: #555;
+		font-weight: 600;
+		font-size: 140%;
+		line-height: calc(150%*1);
+		outline: 2px solid transparent;
+		@include transition-prefix(all 0.45s ease-out);
+		@include box-sizing(border-box);
+
+		&:hover{
+			outline-color: rgba(0,0,0,0.12);
+			border-radius: 0;
+		}
+
+		&:focus{
+			outline-color: rgba(0,0,0,0.12);
+			border-radius: 0;
+		}
+
+	}
+
+	.submit{
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		color: $white;
+		font-size: 140%;
+		font-weight: 600;
+		line-height: calc(140%*1);
+		padding: 10px 35px;
+		background: lighten($sunflower,5%);
+		cursor: pointer;
+		outline: 5px solid transparent;
+		@include box-sizing(border-box);
+		@include transition-prefix(all 0.25s ease-out);
+		&:hover{
+			outline-color: rgba($sunflower,0.2);
+			border-radius: 0;
+			background: darken($sunflower,2%);
+		}
+
+	}
+
+	.forget_password{
+		display: block;
+		margin: 10px auto 0 auto;
+		text-align: center;
+		color: $orange;
+		font-size: 125%;
+		@include transition-prefix(color 0.3s ease-out);
+
+		&:hover{
+			color: darken($orange,10%);
+			text-decoration: none;
+		}
+	}
+}
+
