@@ -29,7 +29,11 @@ export class LoginComponent{
 			this.firebaseApp.auth().signInWithEmailAndPassword(
 				formData.value.email,
 				formData.value.password
-			).then((data) => console.log(data));
+			).then(function(data){
+				console.log(data.uid);
+			}).catch(function(error){
+				alert(error.message);
+			});
 		}
 	}
 
