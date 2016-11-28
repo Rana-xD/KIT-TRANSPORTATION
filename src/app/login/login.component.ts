@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { FirebaseApp, AuthProviders, AuthMethods } from 'angularfire2';
 import * as firebase from 'firebase';
 import { authEmailConfig } from '../app.module';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +16,7 @@ export class LoginComponent{
 		email: '',
 		password: ''
 	};
-	constructor(@Inject(FirebaseApp) public firebaseApp: firebase.app.App){
+	constructor(@Inject(FirebaseApp) public firebaseApp: firebase.app.App,private router: Router){
 		// const dbRoot = firebaseApp.database().ref('users');
 		// dbRoot.on('value', snapshot => console.log(snapshot.val()));
 		
@@ -29,10 +29,10 @@ export class LoginComponent{
 			this.firebaseApp.auth().signInWithEmailAndPassword(
 				formData.value.email,
 				formData.value.password
-			).then(function(data){
-				console.log(data.uid);
-			}).catch(function(error){
-				alert(error.message);
+			).then((data)=>{
+				this.onSuccessAuth(data.uid);
+			}).catch((error)=>{
+				this.onErrorAuth(error);
 			});
 		}
 	}
@@ -58,17 +58,16 @@ export class LoginComponent{
 	}
 
 	// Authentication successfully
-	onSuccessAuth(user){
+	public onSuccessAuth(user){
 		if(user){
-			console.log("logged in succeed");
-			// TO DO
-			// Redirect user to dashboard
+		this.router.navigate(['dashboard']);
+
 		}
 	}
 
 	//Authentication failed
 	onErrorAuth(error){
-		console.log(error.val());
+		console.log(error.code + " : " + error.message);
 		// TO DO
 		// Notify user
 	}
