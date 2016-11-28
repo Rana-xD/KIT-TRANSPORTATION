@@ -1,0 +1,83 @@
+{
+	"rules":{
+
+		// ADMIN LISTS 
+		"admins":{
+			"$userid": {
+				"name": 
+			}
+		},
+
+		// USERS TABLE
+		"users":{ 
+			"$userid":{
+				".read": "auth !== null",
+				
+				"name":{
+					".validate": "newData.hasChildren(['firstname','lastname'])",
+					"firstname": "newData.isString() && newData.val().length <= 25",
+					"lastname": "newData.isString() && newData.val().length <= 25",
+					"username": "newData.isString() && newData.val().length >2<30 && !newData.exists()",
+					"$other": false
+				},
+				"info":{
+					".validate": "newData.hasChildren(['batch'])",
+					"batch": "newData.isNumber() && newData.val().length == 1",
+					"gender": "newData.isString() && (newData.val() == 'male' || newData.val() == 'female')",
+					"mobile": "newData.isNumber() && newData.val().length >8<11",
+					"email": "newData.isString() && newData.val().length >12<50 && newData.contains('@')",
+					"bio": "newData.isString() && newData.val().length < 100",
+					"$other": false
+				},
+				"profile_url": "newData.isString()",
+				"user_type": "newData.isNumber() && (newData.val()==1 || newData.val()==2 || newData.val()==3 || newData.val()==4)",
+				"is_active": "newData.isBoolean()",
+				"last_login": "newData.isString()",
+				"last_online": "newData.isString()",
+				"timestamp": {
+					".validate": "firebase.database.ServerValue.TIMESTAMP",
+				},
+				"$other": false
+			}
+		},
+
+		// TICKETS TABLE
+		"tickets":{
+			"$ticketid":{
+				".read": "auth != null",
+				".write": "auth.uid == Data.child('$userid')",
+				".validate": "newData.hasChildren([''])",
+				".indexOn": "timepstamp",
+				"$userid": "auth.uid",
+				"qr_image": "newData.isString()",
+				"is_used": "newData.isBoolean()",
+				"is_expired": "newData.isBoolean()",
+				"expire_date": "newData.isString()",
+				"timepstamp": "newData.isString()"
+			}
+		},
+
+		// BUS TABLE
+		"vehicles": {
+			"$vehicleid": {
+				".read": "auth != null",
+				".write": "auth.uid == root.child('admin').exists()",
+				"name": "newData.isString()",
+				"type": "newData.isString()",
+				"brand": "newData.isString()",
+				"number_of_seats": "newData.isNumber() && newData.val().length <= 100",
+				"registered_date": "newData.isString()",
+				"$other": false
+			}
+		},
+
+		// ADMIN REPORT
+		"reports": {
+
+		}
+
+		// BUS SCHEDULE
+		""
+
+	}
+}

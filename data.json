@@ -1,0 +1,36 @@
+{
+	"users": {
+		"fzlnEN63ClOcopt1zMMNgXL9upF3": {
+			"name": {
+				"firstname": "ro",
+				"lastname": "vinei",
+				"username": "prince yuko"
+			},
+			"info": {
+				"batch": "1",
+				"gender": "male",
+				"bio": "I am a web developer, I love coding",
+				"mobile": "016630095",
+				"email": "ro.vinei@yahoo.com"
+			},
+			"profile_url": "https://lh6.googleusercontent.com/-YjdKNQBc6yQ/AAAAAAAAAAI/AAAAAAAAAAA/N37mCk6ke2o/W96-H96/photo.jpg?sz=64",
+			"user_type": "admin"
+		},
+		"4GpaZZC0YWZOfZAB3KigQuRFu7z2": {
+			"name": {
+				"firstname": "rana",
+				"lastname": "pann",
+				"username": "rana pann"
+			},
+			"info": {
+				"batch": "1",
+				"gender": "male",
+				"bio": "I am a web developer, I love coding",
+				"mobile": "09543443636",
+				"email": "ranapann@yahoo.com"
+			},
+			"profile_url": "https://lh6.googleusercontent.com/-YjdKNQBc6yQ/AAAAAAAAAAI/AAAAAAAAAAA/N37mCk6ke2o/W96-H96/photo.jpg?sz=64",
+			"user_type": "user"
+		}
+	}
+}
