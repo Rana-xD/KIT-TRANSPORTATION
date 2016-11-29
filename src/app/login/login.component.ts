@@ -4,6 +4,7 @@ import { FirebaseApp, AuthProviders, AuthMethods } from 'angularfire2';
 import * as firebase from 'firebase';
 import { authEmailConfig } from '../app.module';
 import {Router} from '@angular/router';
+import {CoreServiceService} from '../core-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent{
 		email: '',
 		password: ''
 	};
-	constructor(@Inject(FirebaseApp) public firebaseApp: firebase.app.App,private router: Router){
+	constructor(@Inject(FirebaseApp) public firebaseApp: firebase.app.App,private router: Router, private core: CoreServiceService){
 		// const dbRoot = firebaseApp.database().ref('users');
 		// dbRoot.on('value', snapshot => console.log(snapshot.val()));
 		
@@ -44,15 +45,16 @@ export class LoginComponent{
 	// Signin with email and password
 	signInWithEmailPassword(formData: NgForm){
 		if(formData.valid){
-			console.log(formData);
 			this.firebaseApp.auth().signInWithEmailAndPassword(
 				formData.value.email,
 				formData.value.password
 			).then((data)=>{
-				this.onSuccessAuth(data.uid);
+				this.core.setLoginInfo(data.uid);
+				this.onSuccessAuth();
 			}).catch((error)=>{
-				this.onErrorAuth(error);
+				alert(error);
 			});
+			
 		}
 	}
 
@@ -77,10 +79,10 @@ export class LoginComponent{
 	}
 
 	// Authentication successfully
-	onSuccessAuth(user){
+	onSuccessAuth(){
+		let user = this.core.getUserInfo();
 		if(user){
-		this.router.navigate(['dashboard']);
-
+			this.router.navigate(['dashboard']);
 		}
 	}
 
