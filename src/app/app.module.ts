@@ -7,7 +7,8 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { MainComponent } from './main/main.component';
+import { routing } from './root.route';
 export const firebaseConfig = {
   apiKey: "AIzaSyA3x3oprl6wycGy3I8sPXAxVGYEJaFVa2Q",
   authDomain: "kitbus-e6972.firebaseapp.com",
@@ -45,9 +46,11 @@ export const authGithubConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MainComponent
   ],
   imports: [
+    routing,
     BrowserModule,
     FormsModule,
     HttpModule,
