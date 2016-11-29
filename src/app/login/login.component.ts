@@ -22,6 +22,25 @@ export class LoginComponent{
 		
 	}
 
+	// Register user with email and password
+	createUserWithEmailPassword(formData: NgForm){
+		if(formData.valid){
+			this.firebaseApp.auth().createUserWithEmailAndPassword(
+				formData.value.email,
+				formData.value.password
+			).then((data)=> function(data){
+				// TO DO 
+				// Register user to firebase
+			}).catch((error)=> function(error){
+				// TO DO 
+				// Notify user regarding on error code
+				if(error.code == 'auth/email-already-in-use'){
+					alert(error.message);
+				}
+			});
+		}
+	}
+
 	// Signin with email and password
 	signInWithEmailPassword(formData: NgForm){
 		if(formData.valid){
@@ -32,7 +51,7 @@ export class LoginComponent{
 			).then(function(data){
 				console.log(data.uid);
 			}).catch(function(error){
-				alert(error.message);
+				
 			});
 		}
 	}
@@ -71,5 +90,11 @@ export class LoginComponent{
 		console.log(error.val());
 		// TO DO
 		// Notify user
+	}
+
+	// Signout
+	signOut(){
+		this.firebaseApp.auth().signOut()
+		.then()
 	}
 }
