@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
 import { routing } from './root.route';
+import {CoreServiceService} from './core-service.service';
 export const firebaseConfig = {
   apiKey: "AIzaSyA3x3oprl6wycGy3I8sPXAxVGYEJaFVa2Q",
   authDomain: "kitbus-e6972.firebaseapp.com",
@@ -56,7 +57,7 @@ export const authGithubConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig,authEmailConfig)
   ],
-  providers: [],
+  providers: [CoreServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

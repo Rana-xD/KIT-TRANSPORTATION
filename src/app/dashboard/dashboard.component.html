@@ -2,45 +2,54 @@
 <div class="header">
 	<div class="uk-container uk-container-center">
 		<div class="uk-grid uk-grid-collapse">
-			<div class="uk-width-large-2-10 uk-width-medium-2-10 uk-width-small-2-5">
+			<div class="uk-width-large-1-10 uk-width-medium-1-10 uk-width-small-1-5">
 				<div class="logo">
 					<a class="logo_inner" href="/">
 						B
 					</a>
 				</div>
 			</div>
-			<div class="uk-width-large-8-10 uk-width-medium-8-10 uk-width-small-3-5">
+			<div class="uk-width-large-9-10 uk-width-medium-9-10 uk-width-small-4-5">
 			    <!-- global navigation -->
 				<nav class="global_nav">
 					<ul>
-						
+						<li>
+							<a class="href">Dashboard</a>
+						</li>
+						<li>
+							<a class="href">Report</a>
+						</li>
 					</ul>
 				</nav>
 				<!-- /global navigation -->
 
 				<!-- right header -->
 				<div class="right_header">
-					<div class="profiel">
-						<a class="href" class="pic">
-							<img class="src" alt=""></img>
-						</a>
-						<a class="href" class="username">
-							{{ username }}
-						</a>
-					</div>
                     
                     <div class="helper">
                     	<div class="notification">
-                    		<a class="href" class="icon">
+                    		<a href="" class="icon">
                     			<i class="uk-icon-bell"></i>
                     		</a>
                     	</div>
-                    	<div class="setting">
-                    		<a class="href" class="icon">
+                    	<!-- <div class="setting">
+                    		<a href="" class="icon">
                     			<i class="uk-icon-cog"></i>
                     		</a>
-                    	</div>
+                    	</div> -->
                     </div>
+
+                    <div class="profile">
+						<div class="inner">
+							<a href="" class="pic">
+								<img src="img/IMG_8517.JPG" alt="">
+							</a>
+							<a href="" class="username">
+								vinei
+							</a>
+						</div>
+					</div>
+
 				</div>
 				<!-- /right header -->
 			</div>
@@ -51,10 +60,100 @@
 
 <!-- Dashboard -->
 <div class="dashboard">
-	<div class="uk-container uk-container-center">
-		<div class="uk-grid uk-grid-collapse">
+	<div class="uk-grid uk-grid-collapse">
+		<!-- left sidebar -->
+		<div class="left_sidebar">
+			
+			<div class="sidebar_navbar">
+				<div class="userprofile">
+					<div class="inner">
+						<a href="" class="profilepic">
+							<img src="img/IMG_8517.JPG">
+						</a>
+
+						<a href="" class="username">
+							@vinei
+						</a>
+					</div>
+				</div>
+
+				<div class="sidebar_nav">
+					<ul class="functions">
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-bus"></i></div> Register bus
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-ticket"></i></div> My tickets
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-paperclip"></i></div> History
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-ticket"></i></div> Generate reports
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-user"></i></div> My accounts
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="icon_outer"><i class="uk-icon-cog"></i></div> Settings
+							</a>
+						</li>
+					</ul>
+
+					<div class="logout">
+						<a href="">Sign out</a>
+					</div>
+				</div>
+			</div>
 			
 		</div>
+		<!-- /left sidebar -->
+
+		<!-- content -->
+		<div class="content_wrapper">
+			<div class="uk-container">
+				<div class="content">
+					<!-- Registered list -->
+					<div class="user_registration">
+						<div class="heading_title">
+							<h3>REGISTER BUS</h3>
+						</div>
+
+						<ul>
+							<li class="registerd_list">
+								<div class="front_view">
+									<div class="userpic">
+										<a href="">
+											<img src="">
+											<p>
+												Kimheng
+											</p>
+										</a>
+									</div>
+									<div class="func">
+										<a href="" class="cancel">Cancel</a>
+									</div>
+								</div>
+								
+							</li>
+						</ul>
+					</div>
+					<!-- /Registered list -->
+				</div>
+			</div>
+		</div>
+		<!-- /content -->
 	</div>
 </div>
 <!-- /Dashboard -->
