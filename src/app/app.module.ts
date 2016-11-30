@@ -12,6 +12,7 @@ import { MainComponent } from './main/main.component';
 import { routing } from './root.route';
 import { Router} from '@angular/router';
 import {CoreServiceService} from './core-service.service';
+import {AuthUser} from './main.guard';
 export const firebaseConfig = {
   apiKey: "AIzaSyA3x3oprl6wycGy3I8sPXAxVGYEJaFVa2Q",
   authDomain: "kitbus-e6972.firebaseapp.com",
@@ -61,17 +62,10 @@ firebase.initializeApp(firebaseConfig);
     HttpModule
     // AngularFireModule.initializeApp(firebaseConfig,authEmailConfig)
   ],
-  providers: [CoreServiceService],
+  providers: [CoreServiceService,
+  AuthUser],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private router: Router){
-    firebase.auth().onAuthStateChanged((user)=>{
-      if(user){
-        this.router.navigate(['dashboard']);
-      }else{
-        this.router.navigate(['']);
-      }
-    });
-  }
+
 }
