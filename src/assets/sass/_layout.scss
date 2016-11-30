@@ -1,7 +1,10 @@
 @import 'plugin/bourbon/_bourbon.scss';
+/* 
+ * PAGE : Main visaul
+ * SECTION : Header navigation
+ */
 
-@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Source+Sans+Pro:200,400,700,600,400italic,700italic');
-
+@import url('https://fonts.googleapis.com/css?family=Dosis:100,300,400,500,600,700');
 html{
 	background: none;
 	background-image: none;
@@ -17,6 +20,12 @@ body{
 	letter-spacing: 0;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
+}
+
+.uk-container{
+	max-width: 100%;
+	width: 100%;
+	padding: 0 25px;
 }
 
 .login_page{
@@ -196,5 +205,314 @@ body{
 			text-decoration: none;
 		}
 	}
+}
+
+.header{
+	background: #fff;
+	box-shadow: 0px 2px 18px rgba(0,0,0,0.2);
+	height: 70px;
+	z-index: 100;
+	@include clearfix()
+
+	.logo{
+		position: relative;
+		height: 70px;
+		width: 70px;
+		@include clearfix();
+		@include display-flex();
+		@include align-items();
+		.logo_inner{
+			position: relative;
+			display: block;
+			text-decoration: none;
+			color: lighten($darkslay,10%);
+			line-height: 40px;
+			width: 40px;
+			border: 2px solid lighten($darkslay,10%);
+			height: 40px;
+			border-radius: 100%;
+			font-size: 32px;
+			font-family: $font_en;
+			text-align: center;
+		}
+	}
+
+	.global_nav{
+		position: relative;
+		float: left;
+		width: auto;
+		height: 70px;
+
+		ul{
+			display: block;
+			list-style-type: none;
+			margin: 0;
+			height: 70px;
+		}
+
+		li{
+			display: inline;
+			float: left;
+			height: 100%;
+		}
+
+		a{
+			display: block;
+			height: 70px;
+			font-size: 110%;
+			text-decoration: none;
+			text-transform: uppercase;
+			padding: 0 10px;
+			color: lighten($darkslay,30%);
+			line-height: 70px;
+			@include transition-prefix(all 0.25s ease-out);
+			&:hover{
+				color: $darkslay;
+			}
+		}
+	}
+
+	.right_header{
+		position: relative;
+		float: right;
+		width: auto;
+		height: 70px;
+		position: relative;
+		@include clearfix();
+
+		.profile{
+			position: relative;
+			float: left;
+			height: 70px;
+			@include display-flex();
+			@include justify-content();
+			@include align-items();
+
+			.inner{
+				height: 30px;
+
+			}
+
+			a{
+				display: inline-block;
+				float: left;
+				text-decoration: none;
+			}
+
+			.pic{
+				
+				img{
+					display: block;
+					width: 35px;
+					height: 35px;
+					border-radius: 100%;
+					box-shadow: 1px 0.5px 1.5px rgba(0,0,0,0.2);
+					vertical-align: bottom;
+				}
+			}
+
+			.username{
+				display: none;
+				line-height: 40px;
+				color: $lightgray;
+				font-size: 120%;
+			}
+
+		}
+
+		.helper{
+			float: left;
+			position: relative;
+			height: 70px;
+			@include clearfix();
+
+			.notification,
+			.setting{
+				float: left;
+				height: 70px;
+				padding-right: 20px;
+				@include display-flex();
+				@include justify-content();
+				@include align-items();
+
+				.icon{
+					position: relative;
+					padding: 4px;
+					background: rgba(0,0,0,0.3);
+					border-radius: 100%;
+					width: 25px;
+					height: 25px;
+					text-decoration: none;
+					color: $lightgray;
+					font-size: 100%;
+					line-height: 1;
+					text-align: center;
+					@include transition-prefix(all 0.2s ease-out);
+					@include box-sizing(border-box);
+
+					&:hover{
+						color: $white;
+						background: rgba(0,0,0,0.2);
+						box-shadow: inset 0px 0.5px 0.8px rgba(0,0,0,0.4);
+					}
+
+					i{
+						vertical-align: middle;
+					}
+				}
+			}
+
+			
+		}
+
+	}
+}
+
+.dashboard{
+	position: relative;
+	width: 100%;
+	float: left;
+	z-index: -1;
+	@include clearfix();
+
+	.left_sidebar{
+		position: relative;
+		float: left;
+		width: 320px;
+		padding: 0 10px;
+		min-height: 100vh;
+		z-index: 1;
+		background: lighten($pumpkin,3%);
+
+		.sidebar_navbar{
+			position: relative;
+			width: 100%;
+			float: left;
+			z-index: 10;
+			padding: 25px 0;
+
+		}
+
+		a{
+			display: block;
+			text-decoration: none;
+			margin: 0 auto;
+			color: #f2f2f2;
+
+		}
+
+		.userprofile{
+			width: 100%;
+			float: left;
+
+			.profilepic{
+				width: 60px;
+				height: 60px;
+				border-radius: 100%;
+				img{
+					display: block;
+					border-radius: 100%;
+				}
+			}
+
+			.username{
+				font-size: 130%;
+				font-weight: 500;
+				margin: 5px 0 20px 0;
+				text-align: center;
+
+			}
+		}
+
+		.sidebar_nav{
+			position: relative;
+			width: 100%;
+			float: left;
+			@include clearfix();
+
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li{
+					display: block;
+					margin-top: 3px;
+				}
+
+				a{
+					font-size: 130%;
+					padding: 13px;
+					background: rgba(0,0,0,0.1);
+					@include transition-prefix(all 0.3s ease-out);
+
+					.icon_outer{
+						display: inline;
+					}
+
+					i{
+						background: rgba(0,0,0,0.2);
+						padding: 7px;
+						width: 20px;
+						height: 20px;
+						line-height: 1;
+						text-align: center;
+						margin-right: 10px;
+						border-radius: 100%;
+
+					}
+
+					&:hover{
+						background: rgba(0,0,0,0.14);
+						box-shadow: inset 0px 0.3px 0.5px rgba($darkslay,0.2);
+					}
+				}
+			}		
+
+			.logout{
+				position: relative;
+				float: left;
+				width: 100%;
+				margin-top: 30px;
+				text-align: center;
+
+				a{
+					display: inline-block;
+					background: #666;
+					padding: 7px 13px;
+					font-size: 120%;
+					line-height: 1;
+					border-radius: 20px;
+					text-align: center;
+					border: 5px solid $pumpkin;
+					@include transition-prefix(all 0.3s ease-out);
+
+					&:hover{
+						border: 5px solid lighten($pumpkin,3%);
+					}
+					
+				}
+			}
+		}
+	}
+
+	.content_wrapper{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 0;
+		float: left;
+		padding-left: 320px;
+
+		.content{
+			position: relative;
+			width: 100%;
+			min-height: 100vh;
+			@include clearfix();;
+		}
+	}
+
+
 }
 

@@ -23,7 +23,8 @@ $pomegranate: #e14d57;
 $lightpomegranate: #e14d57;
 $cloud: #ecf0f1;
 $sunflower: #f1c40f;
-$pumpkin: rgb(245,104,61);
+$pumpkin: rgb(244,101,80);
+$darkslay: #2a2e3e;
 
 
 /* Background color
@@ -57,8 +58,8 @@ $text_title: 16px;
 $font_size_en: 15px;
 /* Font family */
 
-$font_en: "Source Sans Pro",sans-serif !important;
-$font_mix: "Miriam Libre","Source Sans Pro",sans-serif !important;
+$font_en: "Dosis", sans-serif !important;
+$font_jp: arial,'ヒラギノ角ゴ ProN W3','Hiragino Kaku GothicProN','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳＰゴシック',sans-serif !important;
 
 /* Text color
  ----------------------------------------- */
@@ -67,9 +68,15 @@ $font_mix: "Miriam Libre","Source Sans Pro",sans-serif !important;
  $heading_color: #333;
  $section_heading_color:#333;
 
+/* Text shadow */
+$heading_text_shadow: 0px 0px 0.5px #999;
+$paragraph_text_shadow: 0px 0px 0.3px #999;
+
 /* Image url / directory path
  ------------------------------------------ */
-
+ $business_domain_bg: "../img/main/business_domain/main_business_domain_bg_07.png";
+ $news_bg: "../img/main/news/main_news_bg_01.png";
+ $about_page_banner: "../img/about_us/banner/about_us_clear_banner_01.png";
 
 /* Library color */
 

@@ -2,7 +2,6 @@ import { Component, Inject, Injectable, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FirebaseApp, AuthProviders, AuthMethods } from 'angularfire2';
 import * as firebase from 'firebase';
-import { authEmailConfig } from '../app.module';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -29,8 +28,7 @@ export class LoginComponent{
 				formData.value.email,
 				formData.value.password
 			).then((data)=> function(data){
-				// TO DO 
-				// Register user to firebase
+				console.log(data);
 			}).catch((error)=> function(error){
 				// TO DO 
 				// Notify user regarding on error code
@@ -58,7 +56,7 @@ export class LoginComponent{
 
 	// Singin with google account
 	signInWithGoogle(){
-
+		
 	}
 
 	// Signin with facebook account
@@ -79,8 +77,7 @@ export class LoginComponent{
 	// Authentication successfully
 	onSuccessAuth(user){
 		if(user){
-		this.router.navigate(['dashboard']);
-
+			this.router.navigate(['dashboard']);
 		}
 	}
 

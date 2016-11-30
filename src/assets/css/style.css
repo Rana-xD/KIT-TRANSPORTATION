@@ -17,6 +17,7 @@
 /* Font family */
 /* Text color
  ----------------------------------------- */
+/* Text shadow */
 /* Image url / directory path
  ------------------------------------------ */
 /* Library color */
@@ -33,7 +34,7 @@
 /* float clear
 ------------------------------------------------- */
 /*for modern browser*/
-@import url("https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Source+Sans+Pro:200,400,700,600,400italic,700italic");
+@import url("https://fonts.googleapis.com/css?family=Dosis:100,300,400,500,600,700");
 .clear_fix:after {
   content: ".";
   display: block;
@@ -90,7 +91,7 @@
 /* font family
 ----------------------------------------------------- */
 .lang_en {
-  font-family: "Source Sans Pro", sans-serif !important;
+  font-family: "Dosis", sans-serif !important;
 }
 
 /* Text underline */
@@ -116,6 +117,10 @@ usage:
 	<div class="grid_3"></div> ┘
 </div>
 ------------------------------------------------- */
+/* 
+ * PAGE : Main visaul
+ * SECTION : Header navigation
+ */
 html {
   background: none;
   background-image: none;
@@ -124,7 +129,7 @@ html {
 body {
   position: relative;
   background: #fff;
-  font-family: "Source Sans Pro", sans-serif !important;
+  font-family: "Dosis", sans-serif !important;
   font-size: 14px;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
@@ -134,13 +139,19 @@ body {
   overflow-wrap: break-word;
 }
 
+.uk-container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 25px;
+}
+
 .login_page {
   position: relative;
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: #f6734c;
+  background: #f5725e;
 }
 
 .login_page::after {
@@ -259,7 +270,7 @@ body {
 }
 
 .login_container .form_header h2 {
-  font-family: "Source Sans Pro", sans-serif !important;
+  font-family: "Dosis", sans-serif !important;
   text-transform: uppercase;
   margin: 0;
   font-size: 170%;
@@ -295,7 +306,7 @@ body {
   outline: none;
   border: none;
   border-radius: 5px;
-  font-family: "Source Sans Pro", sans-serif !important;
+  font-family: "Dosis", sans-serif !important;
   text-align: center;
 }
 
@@ -382,8 +393,410 @@ body {
   text-decoration: none;
 }
 
+.header {
+  background: #fff;
+  box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.2);
+  height: 70px;
+  z-index: 100;
+}
+
+.header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.header .logo {
+  position: relative;
+  height: 70px;
+  width: 70px;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+}
+
+.header .logo::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.header .logo .logo_inner {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: #3f455c;
+  line-height: 40px;
+  width: 40px;
+  border: 2px solid #3f455c;
+  height: 40px;
+  border-radius: 100%;
+  font-size: 32px;
+  font-family: "Dosis", sans-serif !important;
+  text-align: center;
+}
+
+.header .global_nav {
+  position: relative;
+  float: left;
+  width: auto;
+  height: 70px;
+}
+
+.header .global_nav ul {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  height: 70px;
+}
+
+.header .global_nav li {
+  display: inline;
+  float: left;
+  height: 100%;
+}
+
+.header .global_nav a {
+  display: block;
+  height: 70px;
+  font-size: 110%;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 10px;
+  color: #687299;
+  line-height: 70px;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.header .global_nav a:hover {
+  color: #2a2e3e;
+}
+
+.header .right_header {
+  position: relative;
+  float: right;
+  width: auto;
+  height: 70px;
+  position: relative;
+}
+
+.header .right_header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.header .right_header .profile {
+  position: relative;
+  float: left;
+  height: 70px;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+}
+
+.header .right_header .profile .inner {
+  height: 30px;
+}
+
+.header .right_header .profile a {
+  display: inline-block;
+  float: left;
+  text-decoration: none;
+}
+
+.header .right_header .profile .pic img {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  box-shadow: 1px 0.5px 1.5px rgba(0, 0, 0, 0.2);
+  vertical-align: bottom;
+}
+
+.header .right_header .profile .username {
+  display: none;
+  line-height: 40px;
+  color: #f5f7f9;
+  font-size: 120%;
+}
+
+.header .right_header .helper {
+  float: left;
+  position: relative;
+  height: 70px;
+}
+
+.header .right_header .helper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.header .right_header .helper .notification,
+.header .right_header .helper .setting {
+  float: left;
+  height: 70px;
+  padding-right: 20px;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+}
+
+.header .right_header .helper .notification .icon,
+.header .right_header .helper .setting .icon {
+  position: relative;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  color: #f5f7f9;
+  font-size: 100%;
+  line-height: 1;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.header .right_header .helper .notification .icon:hover,
+.header .right_header .helper .setting .icon:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0.5px 0.8px rgba(0, 0, 0, 0.4);
+}
+
+.header .right_header .helper .notification .icon i,
+.header .right_header .helper .setting .icon i {
+  vertical-align: middle;
+}
+
+.dashboard {
+  position: relative;
+  width: 100%;
+  float: left;
+  z-index: -1;
+}
+
+.dashboard::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.dashboard .left_sidebar {
+  position: relative;
+  float: left;
+  width: 320px;
+  padding: 0 10px;
+  min-height: 100vh;
+  z-index: 1;
+  background: #f5725e;
+}
+
+.dashboard .left_sidebar .sidebar_navbar {
+  position: relative;
+  width: 100%;
+  float: left;
+  z-index: 10;
+  padding: 25px 0;
+}
+
+.dashboard .left_sidebar a {
+  display: block;
+  text-decoration: none;
+  margin: 0 auto;
+  color: #f2f2f2;
+}
+
+.dashboard .left_sidebar .userprofile {
+  width: 100%;
+  float: left;
+}
+
+.dashboard .left_sidebar .userprofile .profilepic {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.dashboard .left_sidebar .userprofile .profilepic img {
+  display: block;
+  border-radius: 100%;
+}
+
+.dashboard .left_sidebar .userprofile .username {
+  font-size: 130%;
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+}
+
+.dashboard .left_sidebar .sidebar_nav {
+  position: relative;
+  width: 100%;
+  float: left;
+}
+
+.dashboard .left_sidebar .sidebar_nav::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul li {
+  display: block;
+  margin-top: 3px;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul a {
+  font-size: 130%;
+  padding: 13px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul a .icon_outer {
+  display: inline;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul a i {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+.dashboard .left_sidebar .sidebar_nav ul a:hover {
+  background: rgba(0, 0, 0, 0.14);
+  box-shadow: inset 0px 0.3px 0.5px rgba(42, 46, 62, 0.2);
+}
+
+.dashboard .left_sidebar .sidebar_nav .logout {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.dashboard .left_sidebar .sidebar_nav .logout a {
+  display: inline-block;
+  background: #666;
+  padding: 7px 13px;
+  font-size: 120%;
+  line-height: 1;
+  border-radius: 20px;
+  text-align: center;
+  border: 5px solid #f46550;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.dashboard .left_sidebar .sidebar_nav .logout a:hover {
+  border: 5px solid #f5725e;
+}
+
+.dashboard .content_wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  float: left;
+  padding-left: 320px;
+}
+
+.dashboard .content_wrapper .content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.dashboard .content_wrapper .content::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
 h1 {
   color: #000;
+}
+
+@media (min-width: 1220px) {
+  .uk-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 25px;
+  }
 }
 
 /* -------------------------------------------------------------------------
