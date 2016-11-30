@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+// import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import * as firebase from 'firebase';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainComponent } from './main/main.component';
 import { routing } from './root.route';
+import { Router} from '@angular/router';
 import {CoreServiceService} from './core-service.service';
 export const firebaseConfig = {
   apiKey: "AIzaSyA3x3oprl6wycGy3I8sPXAxVGYEJaFVa2Q",
@@ -18,30 +20,32 @@ export const firebaseConfig = {
   messagingSenderId: "859157996774"
 }
 
-export const authEmailConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-}
+firebase.initializeApp(firebaseConfig);
 
-export const authGoogleConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Popup
-}
+// export const authEmailConfig = {
+//   provider: AuthProviders.Password,
+//   method: AuthMethods.Password
+// }
 
-export const authFacebookConfig = {
-  provider: AuthProviders.Facebook,
-  method: AuthMethods.Popup
-}
+// export const authGoogleConfig = {
+//   provider: AuthProviders.Google,
+//   method: AuthMethods.Popup
+// }
 
-export const authTwitterConfig = {
-  provider: AuthProviders.Twitter,
-  method: AuthMethods.Popup
-}
+// export const authFacebookConfig = {
+//   provider: AuthProviders.Facebook,
+//   method: AuthMethods.Popup
+// }
 
-export const authGithubConfig = {
-  provider: AuthProviders.Github,
-  method: AuthMethods.Popup
-}
+// export const authTwitterConfig = {
+//   provider: AuthProviders.Twitter,
+//   method: AuthMethods.Popup
+// }
+
+// export const authGithubConfig = {
+//   provider: AuthProviders.Github,
+//   method: AuthMethods.Popup
+// }
 
 @NgModule({
   declarations: [
@@ -54,10 +58,20 @@ export const authGithubConfig = {
     routing,
     BrowserModule,
     FormsModule,
-    HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig,authEmailConfig)
+    HttpModule
+    // AngularFireModule.initializeApp(firebaseConfig,authEmailConfig)
   ],
   providers: [CoreServiceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private router: Router){
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+        this.router.navigate(['dashboard']);
+      }else{
+        this.router.navigate(['']);
+      }
+    });
+  }
+}

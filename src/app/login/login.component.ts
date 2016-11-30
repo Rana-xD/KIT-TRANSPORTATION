@@ -1,6 +1,6 @@
 import { Component, Inject, Injectable, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { FirebaseApp, AuthProviders, AuthMethods } from 'angularfire2';
+// import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase';
 import {Router} from '@angular/router';
 import {CoreServiceService} from '../core-service.service';
@@ -16,26 +16,34 @@ export class LoginComponent{
 		email: '',
 		password: ''
 	};
-	constructor(@Inject(FirebaseApp) public firebaseApp: firebase.app.App,private router: Router, private core: CoreServiceService){
+	constructor(private router: Router, private core: CoreServiceService){
+		// @Inject(FirebaseApp) public firebaseApp: firebase.app.App,
 		// const dbRoot = firebaseApp.database().ref('users');
 		// dbRoot.on('value', snapshot => console.log(snapshot.val()));
+		firebase.auth().onAuthStateChanged((user)=> {
+	  		if(user){
+	    		this.router.navigate(['dashboard']);
+	  		}else{
+    			this.router.navigate(['']);
+  			}
+		});
 		
 	}
 
 	// Register user with email and password
 	createUserWithEmailPassword(formData: NgForm){
 		if(formData.valid){
-			this.firebaseApp.auth().createUserWithEmailAndPassword(
+			firebase.auth().createUserWithEmailAndPassword(
 				formData.value.email,
 				formData.value.password
-			).then((data)=> function(data){
+			).then((data)=> {
 				console.log(data);
-			}).catch((error)=> function(error){
+			}).catch((error)=> {
 				// TO DO 
 				// Notify user regarding on error code
-				if(error.code == 'auth/email-already-in-use'){
-					alert(error.message);
-				}
+				
+				console.log(error.message);
+				
 			});
 		}
 	}
@@ -43,7 +51,7 @@ export class LoginComponent{
 	// Signin with email and password
 	signInWithEmailPassword(formData: NgForm){
 		if(formData.valid){
-			this.firebaseApp.auth().signInWithEmailAndPassword(
+			firebase.auth().signInWithEmailAndPassword(
 				formData.value.email,
 				formData.value.password
 			).then((data)=>{
@@ -56,9 +64,17 @@ export class LoginComponent{
 		}
 	}
 
+
 	// Singin with google account
 	signInWithGoogle(){
-		
+		let provider = new firebase.auth.GoogleAuthProvider();
+		firebase.auth().signInWithPopup(provider)
+		.then((googleAuthData)=>{
+			console.log(googleAuthData);
+		}).catch((googleAuthError)=>{
+			console.log(googleAuthError);
+		});
+
 	}
 
 	// Signin with facebook account
@@ -93,7 +109,11 @@ export class LoginComponent{
 
 	// Signout
 	signOut(){
-		this.firebaseApp.auth().signOut()
-		.then()
+		firebase.auth().signOut()
+		.then(data=>{
+			alert("logged out!");
+		}).catch((data)=>{
+			alert("error logging out!");
+		});
 	}
 }
