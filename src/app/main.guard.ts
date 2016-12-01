@@ -4,21 +4,25 @@ import * as firebase from 'firebase';
 import { Router} from '@angular/router';
 import {Injectable, EventEmitter} from '@angular/core';
 @Injectable()
-export class AuthUser implements CanActivate 
-{
-    constructor(protected router: Router)
-    {
+
+export class AuthUser implements CanActivate {
+  user:any;
+    constructor(protected router: Router){
+      firebase.auth().onAuthStateChanged((user)=>{
+        if(user){
+          this.user = user; 
+        }
+      });
 
     }
-   canActivate(): boolean
-   {
-       firebase.auth().onAuthStateChanged((user)=>{
-      if(user){
-        this.router.navigate(['dashboard']);  
-        return true;
-      }
-      });
-    this.router.navigate(['']);
-    return false;
+   canActivate(): Observable<boolean> | boolean {
+  
+        if (this.user){
+          return true;
+        }else{
+          this.router.navigate(['']);
+          return false;
+        }
    }
 }
+
