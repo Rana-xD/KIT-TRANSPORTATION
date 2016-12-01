@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-registerbus',
-  templateUrl: './registerbus.component.html',
-  styleUrls: ['./registerbus.component.css']
+  templateUrl: './registerbus.component.html'
 })
 export class RegisterbusComponent implements OnInit {
 

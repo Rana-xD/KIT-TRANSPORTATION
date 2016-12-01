@@ -80,39 +80,39 @@
 				<div class="sidebar_nav">
 					<ul class="functions">
 						<li>
-							<a href="">
+							<a [routerLink]="['registerbus']">
 								<div class="icon_outer"><i class="uk-icon-bus"></i></div> Register bus
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a [routerLink]="['usertickets']">
 								<div class="icon_outer"><i class="uk-icon-ticket"></i></div> My tickets
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a [routerLink]="['history']">
 								<div class="icon_outer"><i class="uk-icon-paperclip"></i></div> History
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a [routerLink]="['report']">
 								<div class="icon_outer"><i class="uk-icon-ticket"></i></div> Generate reports
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a [routerLink]="['account']">
 								<div class="icon_outer"><i class="uk-icon-user"></i></div> My accounts
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a [routerLink]="['setting']">
 								<div class="icon_outer"><i class="uk-icon-cog"></i></div> Settings
 							</a>
 						</li>
 					</ul>
 
 					<div class="logout">
-						<a (click)="logout();">Sign out</a>
+						<a (click)="logout()">Sign out</a>
 					</div>
 				</div>
 			</div>
@@ -124,6 +124,7 @@
 		<div class="content_wrapper">
 			<div class="uk-container">
 				<div class="content">
+					<router-outlet></router-outlet>
 					<!-- Registered list -->
 					<div class="user_registration">
 						<div class="heading_title">
@@ -150,6 +151,7 @@
 						</ul>
 					</div>
 					<!-- /Registered list -->
+
 				</div>
 			</div>
 		</div>
