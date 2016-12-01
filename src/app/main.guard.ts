@@ -18,6 +18,7 @@ export class AuthUser implements CanActivate {
    canActivate(): Observable<boolean> | boolean {
   
         if (this.user){
+          this.router.navigate(['dashboard/registerbus']);
           return true;
         }else{
           this.router.navigate(['']);
