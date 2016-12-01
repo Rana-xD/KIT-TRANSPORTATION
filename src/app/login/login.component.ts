@@ -1,6 +1,5 @@
 import { Component, Inject, Injectable, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase';
 import {Router} from '@angular/router';
 import {CoreServiceService} from '../core-service.service';
@@ -109,11 +108,6 @@ export class LoginComponent{
 
 	// Signout
 	signOut(){
-		firebase.auth().signOut()
-		.then(data=>{
-			alert("logged out!");
-		}).catch((data)=>{
-			alert("error logging out!");
-		});
+		
 	}
 }
