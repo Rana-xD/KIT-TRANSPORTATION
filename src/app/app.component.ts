@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-	constructor(){
+	constructor(private router: Router){
 		
+
 	}
 
 }

@@ -13,6 +13,7 @@ export class DashboardComponent  {
   userName: any;
   userData: any;
   constructor(private router: Router,private core: CoreServiceService){ 
+
     firebase.auth().onAuthStateChanged((user)=>{
       if(user){
         this.userData = user;
@@ -27,7 +28,6 @@ export class DashboardComponent  {
         this.router.navigate(['login']);
       }
     });
-    
     
   }
 
@@ -95,5 +95,9 @@ export class DashboardComponent  {
   }
 
   // 
+
+  logout(){
+    firebase.auth().signOut();
+  }
 
 }
