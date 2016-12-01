@@ -12,6 +12,12 @@ import { routing } from './root.route';
 import { Router} from '@angular/router';
 import {CoreServiceService} from './core-service.service';
 import {AuthUser} from './main.guard';
+import { RegisterbusComponent } from './dashboard/registerbus.component';
+import { UserticketsComponent } from './dashboard/usertickets.component';
+import { HistoryComponent } from './dashboard/history.component';
+import { ReportsComponent } from './dashboard/reports.component';
+import { AccountsComponent } from './dashboard/accounts.component';
+import { SettingsComponent } from './dashboard/settings.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA3x3oprl6wycGy3I8sPXAxVGYEJaFVa2Q",
@@ -28,7 +34,13 @@ firebase.initializeApp(firebaseConfig);
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    MainComponent
+    MainComponent,
+    RegisterbusComponent,
+    UserticketsComponent,
+    HistoryComponent,
+    ReportsComponent,
+    AccountsComponent,
+    SettingsComponent
   ],
   imports: [
     routing,
