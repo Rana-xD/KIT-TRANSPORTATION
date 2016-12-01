@@ -58,7 +58,8 @@ body{
 	}
 }
 
-.login_container{
+.login_container,
+.signup_container{
 	position: relative;
 	max-width: 400px;
 	width: 400px;
@@ -144,8 +145,7 @@ body{
 		
 	}
 
-	.username,
-	.password{
+	.input{
 		display: block;
 		width: 100%;
 		padding: 8px 20px;

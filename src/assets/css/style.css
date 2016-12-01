@@ -193,7 +193,8 @@ body {
   -ms-justify-content: center;
 }
 
-.login_container {
+.login_container,
+.signup_container {
   position: relative;
   max-width: 400px;
   width: 400px;
@@ -211,13 +212,15 @@ body {
   -o-box-sizing: border-box;
 }
 
-.login_container::after {
+.login_container::after,
+.signup_container::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.login_container .icon_container {
+.login_container .icon_container,
+.signup_container .icon_container {
   position: absolute;
   display: -webkit-flex;
   display: -webkit-box;
@@ -246,7 +249,8 @@ body {
   box-shadow: 1px 1px 2px rgba(5, 5, 5, 0.3);
 }
 
-.login_container .icon_container i {
+.login_container .icon_container i,
+.signup_container .icon_container i {
   line-height: 60px;
   font-size: 60px;
   height: 60px;
@@ -255,7 +259,8 @@ body {
   text-align: center;
 }
 
-.login_container .form_header {
+.login_container .form_header,
+.signup_container .form_header {
   position: relative;
   background: transparent;
   width: 100%;
@@ -269,7 +274,8 @@ body {
   padding: 25px;
 }
 
-.login_container .form_header h2 {
+.login_container .form_header h2,
+.signup_container .form_header h2 {
   font-family: "Dosis", sans-serif !important;
   text-transform: uppercase;
   margin: 0;
@@ -278,7 +284,8 @@ body {
   color: #666;
 }
 
-.login_container .login_form {
+.login_container .login_form,
+.signup_container .login_form {
   position: relative;
   width: 100%;
   float: left;
@@ -289,20 +296,23 @@ body {
   -o-box-sizing: border-box;
 }
 
-.login_container .login_form::after {
+.login_container .login_form::after,
+.signup_container .login_form::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.login_container .form_group {
+.login_container .form_group,
+.signup_container .form_group {
   position: relative;
   width: 100%;
   float: left;
   padding-bottom: 15px;
 }
 
-.login_container input {
+.login_container input,
+.signup_container input {
   outline: none;
   border: none;
   border-radius: 5px;
@@ -310,8 +320,8 @@ body {
   text-align: center;
 }
 
-.login_container .username,
-.login_container .password {
+.login_container .input,
+.signup_container .input {
   display: block;
   width: 100%;
   padding: 8px 20px;
@@ -333,19 +343,20 @@ body {
   -o-box-sizing: border-box;
 }
 
-.login_container .username:hover,
-.login_container .password:hover {
+.login_container .input:hover,
+.signup_container .input:hover {
   outline-color: rgba(0, 0, 0, 0.12);
   border-radius: 0;
 }
 
-.login_container .username:focus,
-.login_container .password:focus {
+.login_container .input:focus,
+.signup_container .input:focus {
   outline-color: rgba(0, 0, 0, 0.12);
   border-radius: 0;
 }
 
-.login_container .submit {
+.login_container .submit,
+.signup_container .submit {
   display: block;
   margin: 0 auto;
   width: 100%;
@@ -369,13 +380,15 @@ body {
   transition: all 0.25s ease-out;
 }
 
-.login_container .submit:hover {
+.login_container .submit:hover,
+.signup_container .submit:hover {
   outline-color: rgba(241, 196, 15, 0.2);
   border-radius: 0;
   background: #e8bd0e;
 }
 
-.login_container .forget_password {
+.login_container .forget_password,
+.signup_container .forget_password {
   display: block;
   margin: 10px auto 0 auto;
   text-align: center;
@@ -388,7 +401,8 @@ body {
   transition: color 0.3s ease-out;
 }
 
-.login_container .forget_password:hover {
+.login_container .forget_password:hover,
+.signup_container .forget_password:hover {
   color: #d62c1a;
   text-decoration: none;
 }

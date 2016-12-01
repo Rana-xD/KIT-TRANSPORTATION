@@ -15,16 +15,16 @@ export class DashboardComponent  {
   constructor(private router: Router,private core: CoreServiceService){ 
 
     firebase.auth().onAuthStateChanged((user)=>{
-      if(user){
+      if(user){ // Already signed in
         this.userData = user;
-        if(user.displayName == null){
-          // this.setName(user.email);
-          this.getUserDashboard(user);
+
+        if(this.checkUser(user.uid)){
+          this.getUserDashboard(user.uid);
         }else{
-          // this.setName(user.displayName);
+          this.registerNewUser(user.uid);
         }
-       
-      }else{
+
+      }else{ // Not yet signed in
         this.router.navigate(['login']);
       }
     });
@@ -36,53 +36,58 @@ export class DashboardComponent  {
   }
 
   // Check whether new user or member
-  checkUser(){
-    
-  }
-
-  // Get user data from firebase
-  getUserDashboard(user){
-    let rootRef = firebase.database().ref();
-    let usersRef = rootRef.child('users');
-    let departuresRef = rootRef.child('departures');
-    let departure_joinee = rootRef.child('departure_joinee');
-    let userRef = usersRef.child(user.uid);
-
+  checkUser(uid, err = 0){
+    let userRef = firebase.database().ref('users/'+uid);
+    let errCount = err;
     userRef.once('value')
     .then((snapshot)=>{
       if(!snapshot.val()){
-        this.registerNewUser();
+        return false;
       }else{
-        console.log(snapshot.val());
+        return true;
       }
     }).catch((error)=>{
-      console.log(error);
+      errCount ++;
+      if(errCount<5){
+        this.checkUser(uid, errCount);
+      }else{
+        alert('Oop! sorry something went wrong!');
+        return;
+      }
     });
+
   }
 
-  // Register new user into database
-  registerNewUser(){
-
+  // Get user data from firebase
+  getUserDashboard(uid){
     let rootRef = firebase.database().ref();
     let usersRef = rootRef.child('users');
     let departuresRef = rootRef.child('departures');
     let departure_joinee = rootRef.child('departure_joinee');
-    let userRef = usersRef.child(this.userData.uid);
+    let userRef = usersRef.child(uid);
+
+    
+  }
+
+  // Register new user into database
+  registerNewUser(uid){
+
+    let userRef = firebase.database().ref('user/'+uid);
 
     userRef.set({
       name:{
-        firstname: 'John',
-        lastname: 'Plouk',
-        username: 'Plouk Thom'
+        firstname: 'New',
+        lastname: 'User',
+        username: 'Annonymous'
       },
       info:{
         batch: '1',
-        bio: 'we are developer team',
-        email: 'vinei@gmail.com',
+        bio: '',
+        email: this.userData.email,
         gender: 'male',
-        mobile: '016630095'
+        mobile: ''
       },
-      profile_url: 'https://lh6.googleusercontent.com/-YjdKNQBc6yQ/AAAAAAAAAAI/AAAAAAAAAAA/N37mCk6ke2o/W96-H96/photo.jpg',
+      profile_url: '',
       joined_date: Date.now()
 
     }).then((success)=>{

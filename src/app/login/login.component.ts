@@ -32,16 +32,40 @@ export class LoginComponent{
 	// Register user with email and password
 	createUserWithEmailPassword(formData: NgForm){
 		if(formData.valid){
+			console.log(formData.value);
 			firebase.auth().createUserWithEmailAndPassword(
-				formData.value.email,
-				formData.value.password
-			).then((data)=> {
-				console.log(data);
+				formData.value.uemail,
+				formData.value.upassword
+			).then((user)=> {
+				console.log(user);
+
+				// // Register user info to database
+				// let userRef = firebase.database().ref('users/'+user.uid);
+				// userRef.set({
+				// 	name:{
+				//         firstname: formData.value.firstname,
+				//         lastname: formData.value.lastname,
+				//         username: formData.value.uusername
+    //   				},
+				//     info:{
+				//        	batch: formData.value.batch,
+				//         bio: 'I am me, I love myself and really love me myself',
+				//         email: formData.value.uemail,
+				//         gender: formData.value.gender,
+				//         mobile: ''
+				//     },
+    //   				profile_url: '/assets/img/IMG_8517.JPG',
+    //   				joined_date: Date.now()
+				// }).then((success)=>{
+				// 	console.log("success registered : "+success);
+				// }).catch((error)=>{
+				// 	console.log("failed registered : "+error);
+				// });
 			}).catch((error)=> {
 				// TO DO 
 				// Notify user regarding on error code
 				
-				console.log(error.message);
+				console.log("error sign up: "+error.message);
 				
 			});
 		}

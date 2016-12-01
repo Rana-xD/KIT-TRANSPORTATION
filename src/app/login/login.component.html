@@ -1,6 +1,6 @@
 <div class="login_page">
 	<div class="uk-container uk-container-center">
-		<div class="login_container">
+		<div class="login_container" id="login">
 			<div class="icon_container">
 				<i class="uk-icon-user"></i>
 			</div>
@@ -9,10 +9,10 @@
 					Member Login
 				</h2>
 			</div>
-			<form class="login_form" #form="ngForm" (ngSubmit)="signInWithEmailPassword(form)">
+			<form class="login_form" #form="ngForm" (ngSubmit)="signInWithEmailPassword(form)" style="display: none;">
 
 				<div class="form_group">
-					<input class="username"
+					<input class="input"
 					 	    #email 
 					 	    name="email" 
 					 	    type="text" 
@@ -21,7 +21,7 @@
 					 	    required>
 				</div>
 				<div class="form_group">
-					<input class="password"
+					<input class="input"
 						    #password 
 						    name="password" 
 						    type="password" 
@@ -30,18 +30,119 @@
 						    required>
 				</div>
 				<div class="form_group">
-					<input class="submit" 
+					<input class="submit login" 
 					       name="submit" 
 					       type="submit" 
 					       value="LOGIN"
 					       [disabled]="!form.valid">
 				</div>
-				<div class="form_group">
-					<button (click)="signInWithGoogle()">Google Login</button>
-					<!-- <a href="#" class="forget_password">Forgot password?</a> -->
-				</div>
 				
 			</form>
 		</div>
+
+		<!-- Signup new user -->
+<!-- 		<div class="signup_container" id="signup">
+			<div class="icon_container">
+				<i class="uk-icon-sign-in"></i>
+			</div>
+			<div class="form_header">
+				<h2>
+					Registration
+				</h2>
+			</div>
+			<form class="login_form" #formregister="ngForm" (ngSubmit)="createUserWithEmailPassword(formregister)">
+
+				<div class="form_group">
+					<input class="input"
+					 	    #firstname 
+					 	    name="firstname" 
+					 	    type="text" 
+					 	    placeholder="First name" 
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+					 	    #lastname 
+					 	    name="lastname" 
+					 	    type="text" 
+					 	    placeholder="Last name"
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+					 	    #uusername 
+					 	    name="uusername" 
+					 	    type="text" 
+					 	    placeholder="Username"
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+					 	    #uemail 
+					 	    name="uemail" 
+					 	    type="text" 
+					 	    placeholder="Email"
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+					 	    #batch 
+					 	    name="batch" 
+					 	    type="text" 
+					 	    placeholder="Batch year"
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<label for="male">Male</label>
+					<input class="input"
+					 	    #gender 
+					 	    name="gender" 
+					 	    type="radio" 
+					 	    value="male" 
+					 	    id="male" 
+					 	    >
+
+					<label for="female">Female</label>
+					<input class="input"
+					 	    #gender 
+					 	    name="gender" 
+					 	    type="radio" 
+					 	    value="female" 
+					 	    id="female" 
+					 	    >
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+						    #upassword 
+						    name="upassword" 
+						    type="password" 
+						    placeholder="Password" 
+						    required>
+				</div>
+
+				<div class="form_group">
+					<input class="input"
+					 	    #comfirmpass 
+					 	    name="comfirmpass" 
+					 	    type="password" 
+					 	    placeholder="Repeat password"
+					 	    required>
+				</div>
+
+				<div class="form_group">
+					<input class="submit signup" 
+					       type="submit" 
+					       value="Register">
+				</div>
+				
+			</form>
+		</div> -->
+		<!-- /Signup new user -->
 	</div>
 </div>
