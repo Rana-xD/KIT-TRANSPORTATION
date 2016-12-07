@@ -38,37 +38,41 @@ export class LoginComponent{
 				formData.value.upassword
 			).then((user)=> {
 				console.log(user);
-
-				// // Register user info to database
-				// let userRef = firebase.database().ref('users/'+user.uid);
-				// userRef.set({
-				// 	name:{
-				//         firstname: formData.value.firstname,
-				//         lastname: formData.value.lastname,
-				//         username: formData.value.uusername
-    //   				},
-				//     info:{
-				//        	batch: formData.value.batch,
-				//         bio: 'I am me, I love myself and really love me myself',
-				//         email: formData.value.uemail,
-				//         gender: formData.value.gender,
-				//         mobile: ''
-				//     },
-    //   				profile_url: '/assets/img/IMG_8517.JPG',
-    //   				joined_date: Date.now()
-				// }).then((success)=>{
-				// 	console.log("success registered : "+success);
-				// }).catch((error)=>{
-				// 	console.log("failed registered : "+error);
-				// });
+				this.registerNewUser(formData.value, user.uid);
 			}).catch((error)=> {
 				// TO DO 
-				// Notify user regarding on error code
-				
+				// Notify user regarding on error code	
 				console.log("error sign up: "+error.message);
 				
 			});
 		}
+	}
+
+	  // Register new user into database
+	registerNewUser(info, uid){
+
+	    let userRef = firebase.database().ref('user/'+uid);
+	    userRef.set({
+	      name:{
+	        firstname: info.firstname.toString(),
+	        lastname: info.lastname.toString(),
+	        username: info.uusername.toString()
+	      },
+	      info:{
+	        batch: info.batch.toString(),
+	        bio: 'I am me, I love myself and really love me myself',
+	        email: info.email.toString(),
+	        gender: info.gender.toString(),
+	        mobile: '016630095'
+	      },
+	      profile_url: 'https://lh6.googleusercontent.com/-YjdKNQBc6yQ/AAAAAAAAAAI/AAAAAAAAAAA/N37mCk6ke2o/W96-H96/photo.jpg',
+	      joined_date: Date.now().toString()
+	    }).then((success)=>{
+	      console.log("success register user : "+success);
+	    }).catch((error)=>{
+	      console.log("failed register user : "+error);
+	    });
+
 	}
 
 	// Signin with email and password

@@ -82,13 +82,13 @@ export class DashboardComponent  {
       },
       info:{
         batch: '1',
-        bio: '',
-        email: this.userData.email,
+        bio: 'I am me, I love myself and really love me myself',
+        email: this.userData.email.toString(),
         gender: 'male',
-        mobile: ''
+        mobile: '016630095'
       },
-      profile_url: '',
-      joined_date: Date.now()
+      profile_url: 'https://lh6.googleusercontent.com/-YjdKNQBc6yQ/AAAAAAAAAAI/AAAAAAAAAAA/N37mCk6ke2o/W96-H96/photo.jpg',
+      joined_date: Date.now().toString()
 
     }).then((success)=>{
       console.log("success register user : "+success);
